@@ -3,25 +3,30 @@ plugins {
     id 'java'
 }
 
+version = '0.1-SNAPSHOT'
+
+ext {
+    picocliVersion = '4.7.0'
+    junitVersion = '5.9.1'
+}
+
+dependencies {
+    implementation "info.picocli:picocli:${picocliVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
+}
+
+application {
+    mainClass = 'org.grumpyf0x48.myapplication.Command'
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
-version = '0.1-SNAPSHOT'
-
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    implementation 'info.picocli:picocli:4.7.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
-}
-
-application {
-    mainClass = 'org.grumpyf0x48.myapplication.Command'
 }
 
 tasks.named('test') {

@@ -4,16 +4,16 @@ import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
 
-@CommandLine.Command
+@CommandLine.Command(name = "Command", version = "0.1-SNAPSHOT", mixinStandardHelpOptions = true)
 public class Command implements Callable<Integer> {
+
+    @Override
+    public Integer call() {
+        return 0;
+    }
 
     public static void main(String[] args) {
         int exitCode = new CommandLine(new Command()).execute(args);
         System.exit(exitCode);
-    }
-
-    @Override
-    public Integer call() throws Exception {
-        return 0;
     }
 }

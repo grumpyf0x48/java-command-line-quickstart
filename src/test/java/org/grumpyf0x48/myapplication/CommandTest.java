@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CommandTest {
 
     @Test
-    public void commandCallReturnsO() throws Exception {
+    public void commandCallReturnsO() {
         Command command = new Command();
         assertEquals(0, command.call());
     }

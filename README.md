@@ -10,3 +10,13 @@ java-command-line-quickstart is a template repository to bootstrap a new command
 - EditorConfig for code formatting
 - Renovate for dependencies update
 - GitHub workflow for running tests
+
+Usage:
+
+```shell
+$ ./gradlew run "--args=--help"
+> Task :run
+Usage: Command [-hV]
+  -h, --help      Show this help message and exit.
+  -V, --version   Print version information and exit.
+```
