@@ -1,9 +1,9 @@
 # java-command-line-quickstart
 
-java-command-line-quickstart is a template repository to bootstrap a new command line application using:
+**java-command-line-quickstart** is a template repository to bootstrap a new command line application using:
 
 - Java 17
-- Gradle 7.5.1 for build
+- Gradle 7 for build
 - Picocli for command line parsing
 - Maven Central for dependencies
 - JUnit 5 for tests
@@ -14,7 +14,8 @@ java-command-line-quickstart is a template repository to bootstrap a new command
 Usage:
 
 ```shell
-$ ./gradlew run "--args=--help"
+./gradlew run "--args=--help"
+
 > Task :run
 Usage: Command [-hV]
   -h, --help      Show this help message and exit.
