@@ -1,4 +1,4 @@
-package org.grumpyf0x48.myapplication;
+package org.grumpyf0x48.applicationName;
 
 import org.junit.jupiter.api.Test;
 
