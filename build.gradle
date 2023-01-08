@@ -5,11 +5,6 @@ plugins {
 
 version = '0.1-SNAPSHOT'
 
-ext {
-    picocliVersion = '4.7.0'
-    junitVersion = '5.9.1'
-}
-
 dependencies {
     implementation "info.picocli:picocli:${picocliVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
