@@ -1,5 +1,7 @@
 # java-command-line-quickstart
 
+[![Build](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/gradle.yml/badge.svg)](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/gradle.yml)
+
 **java-command-line-quickstart** is a template repository to bootstrap a new command line application using:
 
 - Java 17
