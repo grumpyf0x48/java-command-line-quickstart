@@ -5,7 +5,7 @@
 **java-command-line-quickstart** is a template repository to bootstrap a new command line application using:
 
 - Java 17
-- Gradle 7 for build
+- Gradle 8 for build
 - Picocli for command line parsing
 - Maven Central for dependencies
 - JUnit 5 for tests
