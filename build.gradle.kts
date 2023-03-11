@@ -17,7 +17,10 @@ application {
     mainClass.set("org.grumpyf0x48.applicationName.Command")
 }
 
-java.sourceCompatibility = JavaVersion.VERSION_17
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
