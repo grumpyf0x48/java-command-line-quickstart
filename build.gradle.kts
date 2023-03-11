@@ -5,8 +5,8 @@ plugins {
 
 version = "0.1-SNAPSHOT"
 
-val picocliVersion = "4.7.1"
-val junitVersion = "5.9.2"
+val picocliVersion: String by project
+val junitVersion: String by project
 
 dependencies {
     implementation("info.picocli:picocli:${picocliVersion}")
