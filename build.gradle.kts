@@ -22,10 +22,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-repositories {
-    mavenCentral()
-}
-
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+repositories {
+    mavenCentral()
 }
