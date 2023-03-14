@@ -1,6 +1,7 @@
 plugins {
     application
     java
+    id("org.graalvm.buildtools.native")
 }
 
 version = "0.1-SNAPSHOT"
@@ -10,6 +11,7 @@ val junitVersion: String by project
 
 dependencies {
     implementation("info.picocli:picocli:${picocliVersion}")
+    annotationProcessor("info.picocli:picocli-codegen:${picocliVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
 }
 
@@ -20,6 +22,15 @@ application {
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+graalvmNative {
+    toolchainDetection.set(false)
+    binaries {
+        all {
+            resources.autodetect()
+        }
+    }
 }
 
 tasks.withType<Test> {

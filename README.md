@@ -6,6 +6,7 @@
 
 - Java 17
 - Gradle 8 with Kotlin DSL for build
+- GraalVM for native build
 - Picocli for command line parsing
 - Maven Central for dependencies
 - JUnit 5 for tests
@@ -13,12 +14,19 @@
 - Renovate for dependencies update
 - GitHub workflow for running tests
 
-Usage:
+## Run application
 
 ```shell
 ./gradlew run "--args=--help"
 
 > Task :run
+Usage: Command [-hV]
+  -h, --help      Show this help message and exit.
+  -V, --version   Print version information and exit.
+```
+
+```shell
+./build/native/nativeCompile/java-command-line-quickstart --help
 Usage: Command [-hV]
   -h, --help      Show this help message and exit.
   -V, --version   Print version information and exit.
