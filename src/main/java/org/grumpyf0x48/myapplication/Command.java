@@ -1,4 +1,4 @@
-package org.grumpyf0x48.applicationName;
+package org.grumpyf0x48.myapplication;
 
 import picocli.CommandLine;
 

@@ -16,7 +16,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("org.grumpyf0x48.applicationName.Command")
+    mainClass.set("org.grumpyf0x48.myapplication.Command")
 }
 
 java {
@@ -24,11 +24,20 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+distributions {
+    main {
+        distributionBaseName.set("myapplication")
+    }
+}
+
 graalvmNative {
     toolchainDetection.set(false)
     binaries {
         all {
             resources.autodetect()
+        }
+        named("main") {
+            imageName.set("myapplication-${version}")
         }
     }
 }
