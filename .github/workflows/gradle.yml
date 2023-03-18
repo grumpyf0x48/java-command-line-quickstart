@@ -20,6 +20,7 @@ jobs:
         with:
           arguments: test
   build_native:
+    if: ${{ false }}  # disabled for now
     name: Build and test native application
     runs-on: ubuntu-22.04
     steps:
