@@ -37,7 +37,7 @@ graalvmNative {
             resources.autodetect()
         }
         named("main") {
-            imageName.set("myapplication-${version}")
+            imageName.set("myapplication")
         }
     }
 }
