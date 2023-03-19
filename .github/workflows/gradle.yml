@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  JAVA_VERSION: '17'
+  JAVA_DISTRIBUTION: 'temurin'
+  GRAALVM_VERSION: '22.3.1'
+  GRAALVM_COMPONENTS: 'native-image'
+
 permissions:
   contents: read
 
@@ -17,8 +23,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
       - uses: gradle/gradle-build-action@v2.4.0
         with:
           arguments: build installDist
@@ -35,9 +41,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: graalvm/setup-graalvm@v1
         with:
-          version: '22.3.1'
-          java-version: '17'
-          components: 'native-image'
+          java-version: ${{ env.JAVA_VERSION }}
+          version: ${{ env.GRAALVM_VERSION }}
+          components: ${{ env.GRAALVM_COMPONENTS }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: gradle/gradle-build-action@v2.4.0
         with:
