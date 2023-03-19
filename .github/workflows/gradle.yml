@@ -18,11 +18,11 @@ jobs:
           distribution: 'temurin'
       - uses: gradle/gradle-build-action@v2.4.0
         with:
-          arguments: build distZip
+          arguments: build installDist
       - uses: actions/upload-artifact@v1
         with:
-          name: myapplication-0.1-SNAPSHOT.zip
-          path: build/distributions/myapplication-0.1-SNAPSHOT.zip
+          name: myapplication-${{ github.sha }}
+          path: build/install/myapplication
   build_native:
     if: ${{ false }}  # disabled for now
     name: Build and test native application
