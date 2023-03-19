@@ -34,7 +34,7 @@ jobs:
           path: build/install/myapplication
 
   build_native:
-    if: ${{ false }}  # disabled for now
+    if: ${{ true }}  # disabled for now
     name: Build and test native application
     runs-on: ubuntu-22.04
     steps:
@@ -47,4 +47,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: gradle/gradle-build-action@v2.4.0
         with:
-          arguments: nativeTest
+          arguments: nativeCompile installNativeDist
