@@ -40,7 +40,7 @@ distributions {
                 include("myapplication")
             }
             from("${project.buildDir}/native/nativeCompile") {
-                into("native/bin")
+                into("bin")
                 include("myapplication")
             }
         }
