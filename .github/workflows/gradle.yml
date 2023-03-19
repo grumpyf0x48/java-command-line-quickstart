@@ -28,7 +28,7 @@ jobs:
       - uses: gradle/gradle-build-action@v2.4.0
         with:
           arguments: test installDist
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: myapplication-${{ github.sha }}
           path: build/install/myapplication
@@ -50,7 +50,7 @@ jobs:
         with:
           # no 'test' here. We trust the ones run in 'build'.
           arguments: installNativeDist
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: myapplication-native-${{ github.sha }}
           path: build/install/myapplication-native
