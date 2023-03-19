@@ -33,13 +33,25 @@ distributions {
             }
         }
     }
+    create("native") {
+        contents {
+            from("${project.buildDir}/generated") {
+                into("completion")
+                include("myapplication")
+            }
+            from("${project.buildDir}/native/nativeCompile") {
+                into("bin")
+                include("myapplication")
+            }
+        }
+    }
 }
 
 val generateCompletion = task("generateCompletion", JavaExec::class) {
     setMain("picocli.AutoComplete")
     setClasspath(files(configurations.compileClasspath, configurations.annotationProcessor, sourceSets["main"].runtimeClasspath))
     doFirst {
-        args("--name=myapplication", "--completionScript=${project.buildDir}/generated/myapplication", "org.grumpyf0x48.myapplication.Command")
+        args("--force", "--name=myapplication", "--completionScript=${project.buildDir}/generated/myapplication", "org.grumpyf0x48.myapplication.Command")
     }
 }
 
@@ -49,6 +61,21 @@ tasks.distZip {
 
 tasks.distTar {
     dependsOn(generateCompletion)
+}
+
+tasks.getByName("installNativeDist") {
+    dependsOn(generateCompletion)
+    dependsOn(tasks.nativeCompile)
+}
+
+tasks.getByName("nativeDistZip") {
+    dependsOn(generateCompletion)
+    dependsOn(tasks.nativeCompile)
+}
+
+tasks.getByName("nativeDistTar") {
+    dependsOn(generateCompletion)
+    dependsOn(tasks.nativeCompile)
 }
 
 graalvmNative {

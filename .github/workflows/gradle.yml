@@ -27,14 +27,15 @@ jobs:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
       - uses: gradle/gradle-build-action@v2.4.0
         with:
-          arguments: build installDist
+          arguments: test installDist
       - uses: actions/upload-artifact@v1
         with:
           name: myapplication-${{ github.sha }}
           path: build/install/myapplication
 
   build_native:
-    if: ${{ false }}  # disabled for now
+    # disabled for now
+    if: ${{ false }}
     name: Build and test native application
     runs-on: ubuntu-22.04
     steps:
@@ -47,4 +48,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: gradle/gradle-build-action@v2.4.0
         with:
-          arguments: nativeTest
+          # no 'test' here. We trust the ones run in 'build'.
+          arguments: installNativeDist
+      - uses: actions/upload-artifact@v1
+        with:
+          name: myapplication-native-${{ github.sha }}
+          path: build/install/myapplication-native
