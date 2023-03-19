@@ -27,7 +27,7 @@ jobs:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
       - uses: gradle/gradle-build-action@v2.4.0
         with:
-          arguments: build installDist
+          arguments: test installDist
       - uses: actions/upload-artifact@v1
         with:
           name: myapplication-${{ github.sha }}
@@ -47,4 +47,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: gradle/gradle-build-action@v2.4.0
         with:
-          arguments: nativeCompile installNativeDist
+          arguments: nativeTest installNativeDist
