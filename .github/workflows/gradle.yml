@@ -1,11 +1,14 @@
 name: Java CI with Gradle
+
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
 permissions:
   contents: read
+
 jobs:
   build:
     name: Build and test application
@@ -23,6 +26,7 @@ jobs:
         with:
           name: myapplication-${{ github.sha }}
           path: build/install/myapplication
+
   build_native:
     if: ${{ false }}  # disabled for now
     name: Build and test native application
