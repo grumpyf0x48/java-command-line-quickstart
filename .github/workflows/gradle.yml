@@ -19,7 +19,7 @@ jobs:
       - uses: gradle/gradle-build-action@v2.4.0
         with:
           arguments: build installDist
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: myapplication-${{ github.sha }}
           path: build/install/myapplication
