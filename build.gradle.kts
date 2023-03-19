@@ -26,8 +26,29 @@ java {
 
 distributions {
     main {
-        distributionBaseName.set("myapplication")
+        contents {
+            from("${project.buildDir}/generated") {
+                include("myapplication")
+                into("completion")
+            }
+        }
     }
+}
+
+val generateCompletion = task("generateCompletion", JavaExec::class) {
+    setMain("picocli.AutoComplete")
+    setClasspath(files(configurations.compileClasspath, configurations.annotationProcessor, sourceSets["main"].runtimeClasspath))
+    doFirst {
+        args("--name=myapplication", "--completionScript=${project.buildDir}/generated/myapplication", "org.grumpyf0x48.myapplication.Command")
+    }
+}
+
+tasks.distZip {
+    dependsOn(generateCompletion)
+}
+
+tasks.distTar {
+    dependsOn(generateCompletion)
 }
 
 graalvmNative {

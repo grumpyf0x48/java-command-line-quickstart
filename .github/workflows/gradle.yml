@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
       - uses: gradle/gradle-build-action@v2.4.0
         with:
-          arguments: test
+          arguments: build distZip
   build_native:
     if: ${{ false }}  # disabled for now
     name: Build and test native application
