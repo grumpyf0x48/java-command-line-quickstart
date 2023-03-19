@@ -63,17 +63,17 @@ tasks.distTar {
     dependsOn(generateCompletion)
 }
 
-tasks.getByName("installNativeDist") {
-    dependsOn(generateCompletion)
-    dependsOn(tasks.nativeCompile)
-}
-
 tasks.getByName("nativeDistZip") {
     dependsOn(generateCompletion)
     dependsOn(tasks.nativeCompile)
 }
 
 tasks.getByName("nativeDistTar") {
+    dependsOn(generateCompletion)
+    dependsOn(tasks.nativeCompile)
+}
+
+tasks.getByName("installNativeDist") {
     dependsOn(generateCompletion)
     dependsOn(tasks.nativeCompile)
 }
