@@ -25,7 +25,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
-      - uses: gradle/gradle-build-action@v2.4.0
+      - uses: gradle/gradle-build-action@v2.4.2
         with:
           arguments: test installDist
       - uses: actions/upload-artifact@v3
@@ -46,7 +46,7 @@ jobs:
           version: ${{ env.GRAALVM_VERSION }}
           components: ${{ env.GRAALVM_COMPONENTS }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: gradle/gradle-build-action@v2.4.0
+      - uses: gradle/gradle-build-action@v2.4.2
         with:
           # no 'test' here. We trust the ones run in 'build'.
           arguments: installNativeDist
