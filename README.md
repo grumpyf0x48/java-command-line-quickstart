@@ -14,6 +14,14 @@
 - GitHub workflow for running tests and uploading artifacts
 - Renovate for dependencies update
 
+## Rename application
+
+By default, this template creates an application named `myapplication`. To rename it, for example to 'brand-new-app':
+
+```shell
+APPLICATION_NAME=brand-new-app make update-application
+```
+
 ## Run application
 
 ```shell
