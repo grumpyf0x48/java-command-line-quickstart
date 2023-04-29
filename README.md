@@ -16,7 +16,9 @@
 
 ## Rename application
 
-By default, this template creates an application named `myapplication`. To rename it, for example to 'brand-new-app':
+By default, this template creates an application named `myapplication`.
+
+To rename it, for example to `brand-new-app`, start the following command:
 
 ```shell
 APPLICATION_NAME=brand-new-app make update-application
