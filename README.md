@@ -17,7 +17,7 @@
 
 ## Rename application
 
-By default, this template creates an application named `java_command_line_quickstart`.
+By default, this template creates an application named `command_line_quickstart`.
 
 To rename it, for example to `brand-new-app`, start the following command:
 
