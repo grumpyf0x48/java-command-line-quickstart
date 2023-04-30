@@ -37,7 +37,7 @@ Usage: Command [-hV]
 ```
 
 ```shell
-./build/native/nativeCompile/myapplication --help
+./build/native/nativeCompile/command_line_quickstart --help
 Usage: Command [-hV]
   -h, --help      Show this help message and exit.
   -V, --version   Print version information and exit.
