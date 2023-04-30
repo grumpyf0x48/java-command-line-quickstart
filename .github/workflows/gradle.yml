@@ -30,8 +30,8 @@ jobs:
           arguments: test distZip installDist
       - uses: actions/upload-artifact@v3
         with:
-          name: myapplication-${{ github.sha }}
-          path: build/install/myapplication
+          name: java_command_line_quickstart_${{ github.sha }}
+          path: build/install/java_command_line_quickstart
 
   build_native:
     # disabled for now
@@ -52,5 +52,5 @@ jobs:
           arguments: nativeDistZip installNativeDist
       - uses: actions/upload-artifact@v3
         with:
-          name: myapplication-native-${{ github.sha }}
-          path: build/install/myapplication-native
+          name: java_command_line_quickstart-native-${{ github.sha }}
+          path: build/install/java_command_line_quickstart_native
