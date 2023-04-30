@@ -52,5 +52,5 @@ jobs:
           arguments: nativeDistZip installNativeDist
       - uses: actions/upload-artifact@v3
         with:
-          name: command_line_quickstart-native_${{ github.sha }}
-          path: build/install/command_line_quickstart_native
+          name: command_line_quickstart_native_${{ github.sha }}
+          path: build/install/command_line_quickstart-native
