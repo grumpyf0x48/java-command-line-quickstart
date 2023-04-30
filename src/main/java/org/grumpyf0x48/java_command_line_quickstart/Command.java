@@ -1,4 +1,4 @@
-package org.grumpyf0x48.myapplication;
+package org.grumpyf0x48.java_command_line_quickstart;
 
 import picocli.CommandLine;
 
