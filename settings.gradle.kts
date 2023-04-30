@@ -12,4 +12,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "java_command_line_quickstart"
+rootProject.name = "command_line_quickstart"
