@@ -8,6 +8,7 @@
 - Gradle 8 with Kotlin DSL for build
 - GraalVM for native build
 - Picocli for command line parsing
+- Picocli Code Generation for Bash completion script generation
 - Maven Central for dependencies
 - JUnit 5 for tests
 - EditorConfig for code formatting
