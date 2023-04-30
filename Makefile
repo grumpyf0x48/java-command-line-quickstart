@@ -14,12 +14,12 @@ update-java-files: $(shell find . -name "*.java") ## Update all Java files
 	done
 
 update-file: check ## Update a Gradle file
-	@sed --in-place "s/$(INITIAL_APPLICATION_NAME)/$(APPLICATION_NAME)/g" $(FILE_NAME)
+	@sed --in-place "s/$(INITIAL_APPLICATION_NAME)/$(REAL_APPLICATION_NAME)/g" $(FILE_NAME)
 	@git add $(FILE_NAME)
 
 update-java-file: check ## Update a Java file
 	@mkdir -p $(shell dirname $(UPDATED_FILE_NAME))
-	@sed "s/$(INITIAL_APPLICATION_NAME)/$(APPLICATION_NAME)/g" $(FILE_NAME) > $(UPDATED_FILE_NAME)
+	@sed "s/$(INITIAL_APPLICATION_NAME)/$(REAL_APPLICATION_NAME)/g" $(FILE_NAME) > $(UPDATED_FILE_NAME)
 	@git rm $(FILE_NAME)
 	@git add $(UPDATED_FILE_NAME)
 
@@ -30,5 +30,8 @@ check:
 		exit 1; \
 	}
 
+DASH:=-
+UNDERSCORE:=_
+REAL_APPLICATION_NAME=$(subst $(DASH),$(UNDERSCORE),$(APPLICATION_NAME))
 INITIAL_APPLICATION_NAME=myapplication
-UPDATED_FILE_NAME=$(shell echo $(FILE_NAME) | sed "s/$(INITIAL_APPLICATION_NAME)/$(APPLICATION_NAME)/")
+UPDATED_FILE_NAME=$(shell echo $(FILE_NAME) | sed "s/$(INITIAL_APPLICATION_NAME)/$(REAL_APPLICATION_NAME)/")
