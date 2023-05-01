@@ -9,7 +9,7 @@ on:
 env:
   JAVA_VERSION: '17'
   JAVA_DISTRIBUTION: 'temurin'
-  GRAALVM_VERSION: '22.3.1'
+  GRAALVM_VERSION: '22.3.2'
   GRAALVM_COMPONENTS: 'native-image'
 
 permissions:
@@ -46,6 +46,7 @@ jobs:
           version: ${{ env.GRAALVM_VERSION }}
           components: ${{ env.GRAALVM_COMPONENTS }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          check-for-updates: 'true'
       - uses: gradle/gradle-build-action@v2.4.2
         with:
           # no 'test' here. We trust the ones run in 'build'.
