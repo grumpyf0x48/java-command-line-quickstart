@@ -1,6 +1,7 @@
 # java-command-line-quickstart
 
-[![Build](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/gradle.yml/badge.svg)](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/gradle.yml)
+[![Build](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/build.yml/badge.svg)](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/build.yml)
+[![Native Build](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/native_build.yml/badge.svg)](https://github.com/grumpyf0x48/java-command-line-quickstart/actions/workflows/native_build.yml)
 
 **java-command-line-quickstart** is a template repository to bootstrap a new command line application using:
 
