@@ -3,7 +3,7 @@ help:
 
 update-application: update-files update-java-files ## Update the application
 
-update-files: build.gradle.kts settings.gradle.kts .github/workflows/gradle.yml ## Update all Gradle files
+update-files: build.gradle.kts settings.gradle.kts .github/workflows/build.yml ## Update all Gradle files
 	@for file in $^; do \
 		FILE_NAME="$${file}" make update-file; \
 	done
