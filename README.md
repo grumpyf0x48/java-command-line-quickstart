@@ -13,20 +13,36 @@
 - Maven Central for dependencies
 - JUnit 5 for tests
 - EditorConfig for code formatting
-- GitHub workflow for running tests and uploading artifacts
+- GitHub workflow to build, test, package the application and upload its distributions
 - Renovate for dependencies update
 
 ## Rename application
 
-By default, this template creates an application named `command_line_quickstart`.
+By default, this template creates an application named `command_line_quickstart` in the package `org.grumpyf0x48`.
 
-To rename it, for example to `brand-new-app`, start the following command:
+Once you have created a repository using this template, you can rename it for example to `brand-new-app` in a package named `org.your.pkg` using the following command:
 
 ```shell
-APPLICATION_NAME=brand-new-app make update-application
+APPLICATION_NAME=brand-new-app \
+    PACKAGE_NAME=org.your.pkg \
+    make update-application
 ```
 
-## Run application
+## Package the application
+
+To package the application, run the following command:
+
+```shell
+./gradlew distZip
+```
+
+## Package the native application
+
+```shell
+./gradlew nativeDistZip
+```
+
+## Run the application
 
 ```shell
 ./gradlew run "--args=--help"
@@ -36,6 +52,8 @@ Usage: Command [-hV]
   -h, --help      Show this help message and exit.
   -V, --version   Print version information and exit.
 ```
+
+## Run the native application
 
 ```shell
 ./build/native/nativeCompile/command_line_quickstart --help
