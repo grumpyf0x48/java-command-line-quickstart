@@ -18,14 +18,12 @@
 
 ## Rename application
 
-By default, this template creates an application named `command_line_quickstart` in the package `org.grumpyf0x48`.
+By default, this template creates an application named `command_line_quickstart`.
 
-Once you have created a repository using this template, you can rename it for example to `brand-new-app` in a package named `org.your.pkg` using the following command:
+Once you have created a repository using this template, you can rename it for example to `brand-new-app` using the following command:
 
 ```shell
-APPLICATION_NAME=brand-new-app \
-    PACKAGE_NAME=org.your.pkg \
-    make update-application
+APPLICATION_NAME=brand-new-app make update-application
 ```
 
 ## Package the application
