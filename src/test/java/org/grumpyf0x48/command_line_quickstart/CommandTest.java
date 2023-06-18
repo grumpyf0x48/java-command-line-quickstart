@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CommandTest {
 
     private final PrintStream initialStdOutStream = System.out;
-    private ByteArrayOutputStream stdOutStream;
+    private final ByteArrayOutputStream stdOutStream = new ByteArrayOutputStream();
 
     @BeforeEach
     public void setUp() {
-        stdOutStream = new ByteArrayOutputStream();
+        stdOutStream.reset();
         System.setOut(new PrintStream(stdOutStream));
     }
 
