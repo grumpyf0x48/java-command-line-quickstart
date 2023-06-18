@@ -1,5 +1,6 @@
 package org.grumpyf0x48.command_line_quickstart;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
@@ -11,11 +12,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CommandTest {
 
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    private final PrintStream initialStdOutStream = System.out;
+    private ByteArrayOutputStream stdOutStream;
 
     @BeforeEach
     public void setUp() {
-        System.setOut(new PrintStream(outputStreamCaptor));
+        stdOutStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(stdOutStream));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(initialStdOutStream);
     }
 
     @Test
@@ -32,6 +40,6 @@ public class CommandTest {
               -h, --help      Show this help message and exit.
               -V, --version   Print version information and exit.
             """;
-        assertEquals(expectedOutput, outputStreamCaptor.toString());
+        assertEquals(expectedOutput, stdOutStream.toString());
     }
 }
