@@ -23,7 +23,7 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
-      - uses: gradle/gradle-build-action@v2.4.2
+      - uses: gradle/gradle-build-action@v2.5.1
         with:
           arguments: test distZip installDist
       - uses: actions/upload-artifact@v3
