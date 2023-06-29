@@ -25,7 +25,7 @@ jobs:
           components: ${{ env.GRAALVM_COMPONENTS }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           check-for-updates: 'true'
-      - uses: gradle/gradle-build-action@v2.4.2
+      - uses: gradle/gradle-build-action@v2.5.1
         with:
           arguments: nativeTest nativeDistZip installNativeDist
       - uses: actions/upload-artifact@v3
