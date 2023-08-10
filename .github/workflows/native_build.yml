@@ -3,11 +3,12 @@ name: Native build with Gradle
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 env:
-  JAVA_VERSION: '17'
-  GRAALVM_VERSION: '22.3.2'
-  GRAALVM_COMPONENTS: 'native-image'
+  GRAALVM_JAVA_VERSION: '17'
+  GRAALVM_DISTRIBUTION: 'graalvm'
 
 permissions:
   contents: read
@@ -17,18 +18,23 @@ jobs:
     name: Build and test native application
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: graalvm/setup-graalvm@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup GraalVM
+        uses: graalvm/setup-graalvm@v1
         with:
-          version: ${{ env.GRAALVM_VERSION }}
-          java-version: ${{ env.JAVA_VERSION }}
-          components: ${{ env.GRAALVM_COMPONENTS }}
+          java-version: ${{ env.GRAALVM_JAVA_VERSION }}
+          distribution: ${{ env.GRAALVM_DISTRIBUTION }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          check-for-updates: 'true'
-      - uses: gradle/gradle-build-action@v2.7.0
+
+      - name: Build and Test
+        uses: gradle/gradle-build-action@v2.7.0
         with:
           arguments: nativeTest nativeDistZip installNativeDist
-      - uses: actions/upload-artifact@v3
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: command_line_quickstart_native_${{ github.sha }}
           path: build/install/command_line_quickstart-native
