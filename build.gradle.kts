@@ -4,7 +4,7 @@ plugins {
     id("org.graalvm.buildtools.native")
 }
 
-version = "0.1-SNAPSHOT"
+val version:String by project
 
 val picocliVersion: String by project
 val junitVersion: String by project
