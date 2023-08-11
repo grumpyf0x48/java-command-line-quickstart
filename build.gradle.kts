@@ -4,7 +4,8 @@ plugins {
     id("org.graalvm.buildtools.native")
 }
 
-val version:String by project
+val version: String by project
+val javaVersion: String by project
 
 val picocliVersion: String by project
 val junitVersion: String by project
@@ -20,8 +21,8 @@ application {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.toVersion("${javaVersion}")
+    targetCompatibility = JavaVersion.toVersion("${javaVersion}")
 }
 
 distributions {
