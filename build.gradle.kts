@@ -83,6 +83,8 @@ graalvmNative {
     toolchainDetection.set(false)
     binaries {
         all {
+            buildArgs.add("--initialize-at-build-time=org.junit.platform.launcher.core.LauncherConfig")
+            buildArgs.add("--initialize-at-build-time=org.junit.jupiter.engine.config.InstantiatingConfigurationParameterConverter")
             resources.autodetect()
         }
         named("main") {
