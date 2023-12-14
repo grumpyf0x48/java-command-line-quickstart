@@ -33,7 +33,7 @@ jobs:
           arguments: test distZip installDist
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: command_line_quickstart_${{ github.sha }}
           path: build/install/command_line_quickstart
