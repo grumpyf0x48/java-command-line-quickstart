@@ -32,7 +32,7 @@ jobs:
           arguments: nativeTest nativeDistZip installNativeDist
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: command_line_quickstart_native_${{ github.sha }}
           path: build/install/command_line_quickstart-native
