@@ -34,7 +34,7 @@ public class CommandTest {
 
     @Test
     public void commandWithHelpArgsDisplaysUsage() {
-        new CommandLine(new Command()).execute(new String[]{"--help"});
+        new CommandLine(new Command()).execute("--help");
         String expectedOutput = """
             Usage: Command [-hV]
               -h, --help      Show this help message and exit.
